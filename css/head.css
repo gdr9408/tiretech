@@ -1,0 +1,203 @@
+@charset "UTF-8";
+
+.header_container {
+  background: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  z-index: 300;
+}
+header {
+  width: 1092px;
+  margin: auto;
+}
+.header_main {}
+header h1 {
+  float: left;
+  margin-top: 20px;
+}
+header h1 a {
+  display: block;
+  width: 163px;
+  height: 21px;
+  background: url('../img/logo.png');
+  text-indent: -9999px;
+}
+.trigger {
+  display: none;
+}
+
+
+
+.gnb {}
+nav {}
+ul.navList {
+  margin-left: 163px;
+  text-align: center;
+}
+.navList>li {
+  display: inline-block;
+}
+.navList>li>a {
+  display: block;
+  line-height: 60px;
+  padding: 0 30px;
+  font-size: 16px;
+}
+.sub {
+  position: absolute;
+  z-index: 200;
+  display: none;
+  padding: 30px 0 ;
+}
+
+.sub a {
+  display: block;
+  padding: 6px 30px;
+  text-align: left;
+  color: #fff;
+}
+.sub a:hover {
+  color: var(--hover-color);
+}
+.sub_shadow {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  background: rgba(0,0,0,0.7);
+}
+
+
+@media (max-width:1169px){
+  .header_container {
+    position: relative;
+  }
+  header {
+    width: auto;
+    margin: 0 10px;
+    position: relative;
+  }
+  .trigger {
+    position: relative;
+    display: block;
+    float: right;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    margin-top: 5px;
+  }
+
+  .bar {
+    position: absolute;
+    left: 14px;
+    width: 22px;
+    height: 2px;
+    background: var(--main-color);
+    transition: 0.3s;
+  }
+  .bar:nth-child(1) {
+    top: 17px;
+  }
+  .bar:nth-child(2) {
+    top: calc(50% - 1px);
+  }
+  .bar:nth-child(3) {
+    bottom: 17px;
+  }
+
+  .trigger.open {}
+  .trigger.open .bar:nth-child(1) {
+    transform: rotate(45deg);
+    top: 24px;
+  }
+  .trigger.open .bar:nth-child(2) {
+    top: calc(50% - 1px);
+    width: 0;
+  }
+  .trigger.open .bar:nth-child(3) {
+    transform: rotate(-45deg);
+    bottom: 24px;
+  }
+
+
+
+  .gnb {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    bottom: 0;
+    width: 250px;
+    background: var(--gray2-color);
+    overflow-y: auto;
+  }
+  
+  nav {}
+  ul.navList {
+    margin-left: 0;
+    text-align: left;
+  }
+  .navList>li {
+    display: block;
+  }
+  /* 메인메뉴 */
+  .navList>li>a {
+    padding: 0 30px;
+    color: #fff;
+    border-bottom: 1px solid var(--gray3-color);
+    position: relative;
+  }
+  /* 십자모양 */
+  .icon {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 22px;
+    right: 10px;
+  }
+  .icon::before, .icon::after {
+    position: absolute;
+    content: "";
+    width: 14px;
+    height: 4px;
+    background: #fff;
+    top: calc(50% - 2px);
+    transition: 0.4s;
+
+  }
+  .icon::before {}
+  .icon::after {
+    transform: rotate(90deg);
+  }
+
+
+  /* 모바일에서 서브메뉴가 펼쳐진 상태 */
+  .navList>li.on {}
+  .navList>li.on > a{
+    color: var(--hover-color);
+  }
+
+  .navList>li.on .icon::before {
+    background: var(--hover-color);
+    transform: rotate(45deg);
+  }
+  .navList>li.on .icon::after {
+    background: var(--hover-color);
+    transform: rotate(-45deg);
+  }
+  .sub {
+    display: none;
+    position: relative;
+    background: #444144;
+  }
+  .sub br {
+    display: none;
+  }
+}
